@@ -1,10 +1,19 @@
-# 機密情報
+# --- 機密情報 ---
 .env
 .env.*
+.env.local
 
-# AIのコンテキスト（トークン）を無駄遣いさせないための巨大・一時ファイル
+# --- AIコンテキスト保護・巨大ファイル ---
+.git/
+.github/
 node_modules/
 dist/
-notified_urls.txt
+package-lock.json
+
+# --- 自動生成されるデータ・ログ ---
+notified_urls.txt*
 summary.txt
 slack_payload.json
+coverage/
+*.log
+*.bak
