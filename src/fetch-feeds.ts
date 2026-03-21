@@ -29,9 +29,18 @@ async function extractContent(item: Parser.Item, maxLength: number): Promise<str
     const virtualConsole = new VirtualConsole();
     const dom = new JSDOM(html, { url: item.link, virtualConsole, runScripts: "outside-only" });
 
-    const article = new Readability(dom.window.document).parse();
+    let articleText = feedText;
+    try {
+      const article = new Readability(dom.window.document).parse();
+      if (article?.textContent) {
+        articleText = article.textContent;
+      }
+    } finally {
+      // JSDOMがイベントループをブロックし続けないよう破棄
+      dom.window.close();
+    }
 
-    return (article?.textContent ?? feedText)
+    return articleText
       .replace(/\s+/g, " ")
       .trim()
       .slice(0, maxLength);

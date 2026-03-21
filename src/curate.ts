@@ -73,3 +73,4 @@ const newUrls = newEntries.map((e) => e.link).filter(Boolean);
 fs.appendFileSync(notifiedPath, newUrls.join("\n") + "\n", "utf-8");
 
 console.log("完了。");
+process.exit(0);
