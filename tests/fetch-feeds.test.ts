@@ -174,13 +174,13 @@ describe("filterItems: 重複除外 + 日付フィルターの組み合わせ", 
     const links = result.map((i) => i.link);
 
     // 残るべきもの: today, 3days-ago, no-date, (7days-agoは微妙なので検証しない)
-    assert.ok(links.includes("https://example.com/today"), "today が含まれていない");
-    assert.ok(links.includes("https://example.com/3days-ago"), "3days-ago が含まれていない");
-    assert.ok(links.includes("https://example.com/no-date"), "no-date が含まれていない");
+    assert.ok(links.some(l => l === "https://example.com/today"), "today が含まれていない");
+    assert.ok(links.some(l => l === "https://example.com/3days-ago"), "3days-ago が含まれていない");
+    assert.ok(links.some(l => l === "https://example.com/no-date"), "no-date が含まれていない");
 
     // 除外されるべきもの
-    assert.ok(!links.includes("https://example.com/8days-ago"), "8days-ago が除外されていない");
-    assert.ok(!links.includes("https://example.com/january"), "january が除外されていない");
-    assert.ok(!links.includes("https://example.com/already-notified"), "already-notified が除外されていない");
+    assert.ok(!links.some(l => l === "https://example.com/8days-ago"), "8days-ago が除外されていない");
+    assert.ok(!links.some(l => l === "https://example.com/january"), "january が除外されていない");
+    assert.ok(!links.some(l => l === "https://example.com/already-notified"), "already-notified が除外されていない");
   });
 });
