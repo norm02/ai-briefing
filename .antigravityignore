@@ -1,0 +1,10 @@
+# 機密情報
+.env
+.env.*
+
+# AIのコンテキスト（トークン）を無駄遣いさせないための巨大・一時ファイル
+node_modules/
+dist/
+notified_urls.txt
+summary.txt
+slack_payload.json

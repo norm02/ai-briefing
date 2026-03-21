@@ -1,0 +1,44 @@
+name: 3-Day AI Curation
+on:
+  schedule:
+    - cron: '0 0 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore notified URLs cache
+        uses: actions/cache@v4
+        with:
+          path: notified_urls.txt
+          key: notified-urls-${{ github.run_id }}
+          restore-keys: notified-urls-
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Curate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run curate
+
+      - name: Build Slack payload
+        if: hashFiles('summary.txt') != ''
+        run: |
+          jq -Rs '{text: ("🚀 *AI駆動設計：直近3日の厳選3記事*\n" + .)}' summary.txt > slack_payload.json
+
+      - name: Post to Slack
+        if: hashFiles('summary.txt') != ''
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload-file-path: slack_payload.json
