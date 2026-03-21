@@ -63,8 +63,8 @@ npm test
 sources:
   - title: "Google Developers Blog"
     url: "https://developers.googleblog.com/feed.xml"
-  - title: "Zenn (関連タグ)"
-    url: "https://zenn.dev/topics/ai/feed"
+  - title: "Google AI Blog"
+    url: "https://feeds.feedburner.com/blogspot/gJZg"
 ```
 
 ## GitHub Actions での定期実行
