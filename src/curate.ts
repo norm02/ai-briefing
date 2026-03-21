@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import 'dotenv/config'
 import yaml from "js-yaml";
 import { GoogleGenAI } from "@google/genai";
 import { fetchNewEntries, type FeedSource } from "./fetch-feeds.js";
@@ -18,10 +19,10 @@ const notifiedPath = path.join(root, "notified_urls.txt");
 const notifiedUrls = new Set<string>(
   fs.existsSync(notifiedPath)
     ? fs
-        .readFileSync(notifiedPath, "utf-8")
-        .split(/\r?\n/)
-        .map((url) => url.trim())
-        .filter(Boolean)
+      .readFileSync(notifiedPath, "utf-8")
+      .split(/\r?\n/)
+      .map((url) => url.trim())
+      .filter(Boolean)
     : []
 );
 
@@ -44,14 +45,14 @@ const entriesText = newEntries
   .map((e) => `[${e.source}] ${e.title}\nURL: ${e.link}\n${e.content}`)
   .join("\n\n---\n\n");
 
-const prompt = `以下の記事一覧から、現在の開発チームの関心事である【AI駆動開発（Gemini API/CLI、Antigravityなど）、Web技術（Chromeなど）、自動テスト（Playwrightなど）】に関連する、最も重要で役立つ記事を「最大3つ」厳選してください。
+const prompt = `以下の記事一覧から、【AI駆動開発（Gemini API/CLI、Antigravityなど）、Web技術（Chromeなど）、自動テスト（Playwrightなど）】に関連する、最も重要で役立つ記事を「最大5つ」厳選してください。
 
 ⚠️ 以下のテーマはノイズとなるため**除外**してください:
-- エッジデバイス、IoT、ハードウェア、マイコン関連
+- エッジデバイス、IoT、マイコン関連
 - 企業間の業務提携、パートナーシップ、ビジネス寄りのニュース
 
 【制約・出力フォーマット】
-- 関心事に強く合致する記事が3件未満の場合は、無理に3つ選ばず、該当する有益なものだけを出力してください。
+- 関心事に強く合致する記事が5件未満の場合は、無理に5つ選ばず、該当する有益なものだけを出力してください。
 - 各記事はSlack通知用のMarkdown形式にし、「タイトル・URL・なぜ開発に役立つか（1〜2文の日本語要約）」を記載して簡潔にまとめてください。
 
 記事一覧:

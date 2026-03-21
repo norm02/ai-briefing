@@ -7,10 +7,10 @@
     "verify": "tsx scripts/verify-sources.ts",
     "test": "tsx --test tests/**/*.test.ts"
   },
-
   "dependencies": {
     "@google/genai": "^1.0.0",
     "@mozilla/readability": "^0.6.0",
+    "dotenv": "^17.3.1",
     "js-yaml": "^4.1.0",
     "jsdom": "^29.0.1",
     "rss-parser": "^3.13.0"
