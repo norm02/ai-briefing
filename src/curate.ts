@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import 'dotenv/config'
 import yaml from "js-yaml";
 import { GoogleGenAI } from "@google/genai";
-import { fetchNewEntries, type FeedSource } from "./fetch-feeds.js";
+import { fetchNewEntries, type FeedSource } from "./fetch-feeds.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
