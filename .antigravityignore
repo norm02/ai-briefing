@@ -11,7 +11,7 @@ dist/
 package-lock.json
 
 # --- 自動生成されるデータ・ログ ---
-notified_urls.txt*
+processed_urls.txt*
 summary.txt
 slack_payload.json
 coverage/

@@ -13,12 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Restore notified URLs cache
+      - name: Restore processed URLs cache
         uses: actions/cache@v5
         with:
-          path: notified_urls.txt
-          key: notified-urls-${{ github.run_id }}
-          restore-keys: notified-urls-
+          path: processed_urls.txt
+          key: processed-urls-${{ github.run_id }}
+          restore-keys: processed-urls-
 
       - uses: actions/setup-node@v6
         with:

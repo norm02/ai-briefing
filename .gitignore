@@ -1,5 +1,5 @@
 # --- Application Data ---
-notified_urls.txt*
+processed_urls.txt*
 summary.txt
 slack_payload.json
 

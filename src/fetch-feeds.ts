@@ -68,7 +68,7 @@ export interface FeedSource {
 /** 複数フィードから新着エントリを収集して枝切りしたテキストを返す */
 export async function fetchNewEntries(
   sources: FeedSource[],
-  notifiedUrls: Set<string>,
+  processedUrls: Set<string>,
   options: { maxLength?: number; maxAgeDays?: number } = {}
 ): Promise<FeedEntry[]> {
   const { maxLength = 400, maxAgeDays = 7 } = options;
@@ -91,7 +91,7 @@ export async function fetchNewEntries(
 
     const newItems = feed.items.filter((item) => {
       if (!item.link) return false;
-      if (notifiedUrls.has(item.link)) return false;
+      if (processedUrls.has(item.link)) return false;
 
       // 日付チェック（日付が取れない記事は除外しない）
       const dateStr = item.pubDate ?? item.isoDate;

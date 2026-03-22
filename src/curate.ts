@@ -14,12 +14,12 @@ const config = yaml.load(fs.readFileSync(path.join(root, "sources.yml"), "utf-8"
   sources: FeedSource[];
 };
 
-// --- 通知済みURLの読み込み ---
-const notifiedPath = path.join(root, "notified_urls.txt");
-const notifiedUrls = new Set<string>(
-  fs.existsSync(notifiedPath)
+// --- 処理済みURLの読み込み ---
+const processedPath = path.join(root, "processed_urls.txt");
+const processedUrls = new Set<string>(
+  fs.existsSync(processedPath)
     ? fs
-      .readFileSync(notifiedPath, "utf-8")
+      .readFileSync(processedPath, "utf-8")
       .split(/\r?\n/)
       .map((url) => url.trim())
       .filter(Boolean)
@@ -28,7 +28,7 @@ const notifiedUrls = new Set<string>(
 
 // --- 新着エントリ収集 ---
 console.log("フィード収集中...");
-const newEntries = await fetchNewEntries(config.sources, notifiedUrls, { maxAgeDays: 7 });
+const newEntries = await fetchNewEntries(config.sources, processedUrls, { maxAgeDays: 7 });
 
 
 if (newEntries.length === 0) {
@@ -85,9 +85,9 @@ console.log("Gemini応答:\n", summary);
 // --- summary.txt に書き出し（GitHub Actions側でSlack通知に使用）---
 fs.writeFileSync(path.join(root, "summary.txt"), summary, "utf-8");
 
-// --- 通知済みURLを追記 ---
+// --- 処理済みURLを追記 ---
 const newUrls = newEntries.map((e) => e.link).filter(Boolean);
-fs.appendFileSync(notifiedPath, newUrls.join("\n") + "\n", "utf-8");
+fs.appendFileSync(processedPath, newUrls.join("\n") + "\n", "utf-8");
 
 console.log("完了。");
 process.exit(0);
