@@ -1,7 +1,7 @@
-name: 3-Day AI Curation
+name: Daily AI Curation
 on:
   schedule:
-    - cron: '0 22 */3 * *'
+    - cron: '0 22 * * *'
   workflow_dispatch:
 
 permissions:
@@ -36,7 +36,7 @@ jobs:
       - name: Build Slack payload
         if: hashFiles('summary.txt') != ''
         run: |
-          jq -Rs '{text: ("🚀 *AI駆動設計：直近3日の厳選3記事*\n" + .)}' summary.txt > slack_payload.json
+          jq -Rs '{text: ("🚀 *AI駆動設計：本日の厳選3記事*\n" + .)}' summary.txt > slack_payload.json
 
       - name: Post to Slack
         if: hashFiles('summary.txt') != ''
