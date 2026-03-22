@@ -2,7 +2,29 @@ import Parser from "rss-parser";
 import { Readability } from "@mozilla/readability";
 import { JSDOM, VirtualConsole } from "jsdom";
 
-const parser = new Parser({ timeout: 10000 });
+/** 
+ * 最新のブラウザ（2026年3月時点の Chrome 146）を模倣した共通ヘッダー
+ * User-Agent Client Hints (Sec-CH-UA) を含めることで、ボット検知による 403 Forbidden をより確実に回避します
+ */
+const DEFAULT_HEADERS: Record<string, string> = {
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+  "Accept": "application/rss+xml, application/xml, text/xml, */*",
+  "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
+  "Cache-Control": "no-cache",
+  "Pragma": "no-cache",
+  "Sec-CH-UA": '"Google Chrome";v="146", "Chromium";v="146", "Not?A_Browser";v="99"',
+  "Sec-CH-UA-Mobile": "?0",
+  "Sec-CH-UA-Platform": '"Windows"',
+  "Sec-Fetch-Dest": "document",
+  "Sec-Fetch-Mode": "navigate",
+  "Sec-Fetch-Site": "none",
+  "Sec-Fetch-User": "?1",
+  "Upgrade-Insecure-Requests": "1",
+};
+
+const parser = new Parser({
+  timeout: 10000,
+});
 
 /** フィードのsummary/contentが短い場合、記事ページをfetchしてReadabilityで本文抽出 */
 async function extractContent(item: Parser.Item, maxLength: number): Promise<string> {
@@ -20,7 +42,7 @@ async function extractContent(item: Parser.Item, maxLength: number): Promise<str
   try {
     const res = await fetch(item.link, {
       signal: AbortSignal.timeout(8000),
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; ai-briefing-bot/1.0)" },
+      headers: DEFAULT_HEADERS,
     });
     if (!res.ok) return feedText;
 
@@ -79,7 +101,15 @@ export async function fetchNewEntries(
   for (const source of sources) {
     let feed: Parser.Output<Record<string, string>>;
     try {
-      feed = await parser.parseURL(source.url);
+      const res = await fetch(source.url, {
+        signal: AbortSignal.timeout(10000),
+        headers: DEFAULT_HEADERS,
+      });
+      if (!res.ok) {
+        throw new Error(`Status code ${res.status}`);
+      }
+      const xml = await res.text();
+      feed = await parser.parseString(xml);
     } catch (err) {
       console.warn(`[WARN] フィード取得失敗: ${source.title} (${source.url})\n`, err);
       continue;
