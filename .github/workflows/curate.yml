@@ -36,7 +36,7 @@ jobs:
       - name: Build Slack payload
         if: hashFiles('summary.txt') != ''
         run: |
-          jq -Rs '{text: ("🚀 *AI駆動設計：本日の厳選3記事*\n" + .)}' summary.txt > slack_payload.json
+          jq -Rs '{text: ("本日の記事*\n" + .)}' summary.txt > slack_payload.json
 
       - name: Post to Slack
         if: hashFiles('summary.txt') != ''

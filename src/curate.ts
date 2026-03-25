@@ -53,6 +53,7 @@ const prompt = `
    - AI駆動開発: Gemini CLI, Antigravity, MCP/CLIツール
    - Web技術: Chrome, Chromium
    - 自動テスト: Playwright, Playwright CLI, Playwright MCP
+   - セキュリティ： 特に上記技術やツールに関するもの
 2. 【一次情報の厳守・優遇】
    - ツール提供元の公式ブログ、公式技術ドキュメント、GitHubリポジトリ（Release notesなど）等の「一次情報」を最も高く評価してください。
    - 企業のテックブログやニュースサイト等の二次情報・三次情報は、非常に有益な場合に限り選定対象としてください。

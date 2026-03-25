@@ -1,6 +1,6 @@
 # AI Briefing
 
-AI駆動開発（Gemini API/CLI、Antigravity など）、Web技術、自動テスト（Playwright など）に関連する重要記事を、指定されたRSSフィードから自動で収集・選定（キュレーション）し、Slackへ通知するボットです。
+指定したソースから自動で収集・選定（AIキュレーション）し、Slackへ定期通知するワークフローです。
 
 ![Workflow](./assets/ai_briefing_workflow.svg)
 
