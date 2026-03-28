@@ -48,13 +48,13 @@ const entriesText = newEntries
 const prompt = `
 以下の記事一覧から、Webエンジニア（AI駆動開発・自動テスト重視）の業務に最も役立つ重要な記事を「最大3つ」厳選してください。
 
-# 優先評価基準（上から順に高評価とする）
-1. 【最優先の技術テーマ】
-   - AI駆動開発: Gemini CLI, Antigravity, MCP/CLIツール
+# 優先評価基準
+1. 【最優先の技術テーマ】上から順に高評価とする
+   - Google（AI駆動開発）: Gemini CLI, Antigravity, Gemini, MCP/CLIツール, その他GoogleAIツール
    - Web技術: Chrome, Chromium
    - 自動テスト: Playwright, Playwright CLI, Playwright MCP
+   - Anthropic/Claude ： Claude CodeなどAnthropicツール
 2. 【情報の信頼性とソースの優先順位】
-
 最優先（一次情報）: 開発元・ツール提供元の公式ブログ、公式ドキュメント、GitHubリポジトリ（Release notes等）を最上位の評価対象としてください。
 次点（組織の発信）: 企業の提供するテックブログ（Zennの企業アカウント含む）など組織名義で発信された情報を優先してください。
 条件付き検討（個人の発信）: 個人のブログ（Zennの個人投稿や個人サイト等）は原則として優先度を下げてください。ただし、**「公式にはない独自の技術検証」や「実務に直結する極めて有益な知見」**が含まれる場合に限り、厳選して選定対象に含めてください。
