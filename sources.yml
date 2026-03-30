@@ -39,8 +39,6 @@ sources:
     url: "https://developers.freee.co.jp/feed"
   - title: "M3 Tech Blog"
     url: "https://www.m3tech.blog/feed"
-  - title: "M3 Tech Blog"
-    url: "https://www.m3tech.blog/feed"
   - title: "DeNA Engineering on DeNA Engineering"
     url: "https://engineering.dena.com/index.xml"
   - title: "LINEYahoo Tech Blog"
