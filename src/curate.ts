@@ -65,10 +65,8 @@ const prompt = `
 
 # 除外テーマ
 - 企業間の業務提携、パートナーシップ、ビジネス・資金調達寄りのニュース
-- IoT、デザイン
 
 # 除外ツール
-- AI駆動開発: OpenClaw, Codex, Github Copilot, Cursor, n8n, ChatGPT
 - クラウド： AWS, Azure
 
 # 制約・出力フォーマット
