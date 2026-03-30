@@ -38,6 +38,14 @@ if (newEntries.length === 0) {
 
 console.log(`${newEntries.length}件の新着記事を取得`);
 
+// --- 件数に応じた動的なリミット設定 ---
+let maxArticles = 3;
+if (newEntries.length > 30) {
+  maxArticles = 7;
+} else if (newEntries.length > 15) {
+  maxArticles = 5;
+}
+
 // --- Gemini でキュレーション ---
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
 
@@ -46,7 +54,7 @@ const entriesText = newEntries
   .join("\n\n---\n\n");
 
 const prompt = `
-以下の記事一覧から、Webエンジニア（AI駆動開発・自動化重視）の業務に最も役立つ重要な記事を「最大3つ」厳選してください。
+以下の記事一覧から、Webエンジニア（AI駆動開発・自動化重視）の業務に最も役立つ重要な記事を「最大${maxArticles}つ」厳選してください。
 
 # 優先評価基準
 1. 【最優先の技術テーマ】上から順に高評価とする
@@ -69,7 +77,7 @@ const prompt = `
 - クラウド： AWS, Azure
 
 # 制約・出力フォーマット
-- 関心事や優先基準に強く合致する記事が3件未満の場合は、無理に3つ選ばず、該当する有益なものだけを出力してください。
+- 関心事や優先基準に強く合致する記事が${maxArticles}件未満の場合は、無理に${maxArticles}つ選ばず、該当する有益なものだけを出力してください。
 - 各記事はSlack通知に最適なMarkdown形式で出力してください。
 - 以下のフォーマットに従い、簡潔にまとめてください。
 
