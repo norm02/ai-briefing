@@ -63,6 +63,8 @@ sources:
     url: "https://zenn.dev/p/mixi/feed"
   - title: "NTT DATA TECH"
     url: "https://zenn.dev/p/nttdata_tech/feed"
+  - title: "Ubie Tech Blog"
+    url: "https://zenn.dev/p/ubie_dev/feed"
   - title: "Azukiazusa Tech Blog"
     url: "https://azukiazusa.dev/rss.xml"
   - title: "Nyosegawa HP"
