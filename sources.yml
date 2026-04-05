@@ -43,8 +43,6 @@ sources:
     url: "https://engineering.dena.com/index.xml"
   - title: "LINEYahoo Tech Blog"
     url: "https://techblog.lycorp.co.jp/ja/feed/index.xml"
-  - title: "Mercari Engineers Blog"
-    url: "https://engineering.mercari.com/blog/feed.xml"
   - title: "ZOZO TECH BLOG"
     url: "https://techblog.zozo.com/feed"
   - title: "DevelopersIO"

@@ -1,19 +1,9 @@
-# --- 機密情報 ---
 .env
 .env.*
 .env.local
 
-# --- AIコンテキスト保護・巨大ファイル ---
-.git/
-.github/
 node_modules/
 dist/
 package-lock.json
 
-# --- 自動生成されるデータ・ログ ---
-processed_urls.txt*
-summary.txt
 slack_payload.json
-coverage/
-*.log
-*.bak

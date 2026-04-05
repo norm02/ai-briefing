@@ -10,13 +10,8 @@ slack_payload.json
 
 # --- Node.js / TypeScript ---
 node_modules/
-dist/
-coverage/
-*.log
 
 # --- OS & Editor ---
 .DS_Store
 Thumbs.db
 .vscode/
-.idea/
-*.bak

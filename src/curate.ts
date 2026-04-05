@@ -40,9 +40,7 @@ console.log(`${newEntries.length}件の新着記事を取得`);
 
 // --- 件数に応じた動的なリミット設定 ---
 let maxArticles = 3;
-if (newEntries.length > 30) {
-  maxArticles = 7;
-} else if (newEntries.length > 15) {
+if (newEntries.length > 40) {
   maxArticles = 5;
 }
 
