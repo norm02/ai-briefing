@@ -65,6 +65,8 @@ sources:
     url: "https://azukiazusa.dev/rss.xml"
   - title: "Nyosegawa HP"
     url: "https://nyosegawa.com/feed.xml"
+  - title: "Ota2000 HP"
+    url: "https://ota2000.com/rss.xml"
   - title: "Google Cloud Tech ch"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCJS9pqu9BzkAMNTmzNMNhvg"
   - title: "Anthropic ch"
