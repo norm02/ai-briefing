@@ -25,8 +25,6 @@ sources:
     url: "https://web.dev/feed.xml"
   - title: "GitHub Actions Changelog"
     url: "https://github.blog/changelog/label/actions/feed/"
-  - title: "Gemini CLI Releases"
-    url: "https://github.com/google-gemini/gemini-cli/releases.atom"
   - title: "Chrome Devtools MCP Releases"
     url: "https://github.com/ChromeDevTools/chrome-devtools-mcp/releases.atom"
   - title: "Playwright Releases"
