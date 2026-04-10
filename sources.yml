@@ -65,6 +65,8 @@ sources:
     url: "https://nyosegawa.com/feed.xml"
   - title: "Ota2000 HP"
     url: "https://ota2000.com/rss.xml"
+  - title: "hi120ki Blog"
+    url: "https://hi120ki.github.io/ja/blog/rss.xml"
   - title: "Google Cloud Tech ch"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCJS9pqu9BzkAMNTmzNMNhvg"
   - title: "Anthropic ch"
