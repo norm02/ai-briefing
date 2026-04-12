@@ -63,8 +63,6 @@ sources:
     url: "https://azukiazusa.dev/rss.xml"
   - title: "Nyosegawa HP"
     url: "https://nyosegawa.com/feed.xml"
-  - title: "Ota2000 HP"
-    url: "https://ota2000.com/rss.xml"
   - title: "hi120ki Blog"
     url: "https://hi120ki.github.io/ja/blog/rss.xml"
   - title: "Google Cloud Tech ch"
