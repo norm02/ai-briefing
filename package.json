@@ -2,11 +2,7 @@
   "name": "ai-briefing",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "curate": "tsx src/curate.ts",
-    "verify": "tsx scripts/verify-sources.ts",
-    "test": "tsx --test tests/**/*.test.ts"
-  },
+  "scripts": {},
   "dependencies": {
     "@google/genai": "^1.0.0",
     "@mozilla/readability": "^0.6.0",
