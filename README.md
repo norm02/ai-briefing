@@ -9,7 +9,7 @@
 このプロジェクトは、以下の流れで動きます。
 1. `sources.yml` に記載のRSSフィードから最新記事を取得（本文が短い場合は記事を直接フェッチして内容をスクレイピング）
 2. 過去の実行ですでに処理済みの記事（`processed_urls.txt`）や、一定期間（デフォルト7日）経過した古い記事を除外
-3. Gemini API (`gemini-3.1-flash-lite-preview`) を利用して、開発チームの関心事にマッチする記事をピックアップ
+3. Gemini API (`gemini-3.7-flash`) を利用して、記事をピックアップ
 4. GitHub Actions 上で実行され、成果物を Slack へ通知
 
 ## 必須環境・要件
@@ -72,7 +72,7 @@ sources:
 ## GitHub Actions での定期実行
 
 本リポジトリには、GitHub Actions用のワークフローファイル (`.github/workflows/curate.yml`) が含まれています。
-デフォルトでは **毎日（cron設定）** 自動で実行し、Slackへ通知を送ります。
+**月曜日・金曜日の朝 07:00 JST** に自動で実行し、Slackへ通知を送ります。
 
 ### GitHub Secrets の設定
 

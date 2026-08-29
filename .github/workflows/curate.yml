@@ -1,8 +1,8 @@
 name: Weekly AI Curation
 on:
   schedule:
-    - cron: '0 22 * * 3'
-    - cron: '0 22 * * 5'
+    - cron: '0 22 * * 0'
+    - cron: '0 22 * * 4'
   workflow_dispatch:
 
 permissions:
