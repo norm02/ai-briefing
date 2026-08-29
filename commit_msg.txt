@@ -1,4 +1,0 @@
-feat: schedule Wed/Fri, add legacy doc priority
-
-- curate.yml: daily -> Wed and Fri at 22:00 UTC
-- curate.ts: add top-priority themes for AI legacy doc and doc-based test generation
