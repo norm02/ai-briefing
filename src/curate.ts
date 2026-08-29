@@ -56,6 +56,8 @@ const prompt = `
 
 # 優先評価基準
 1. 【最優先の技術テーマ】上から順に高評価とする
+   - レガシーシステムのドキュメント化・仕様書生成: AIを活用したレガシーコードの仕様書・設計書・ドキュメント自動生成、リバースエンジニアリング支援
+   - ドキュメント駆動テスト生成: 仕様書・ドキュメントをもとにAIが自動テストを生成するアプローチ、テストコード自動化
    - AI駆動開発: Gemini CLI, Antigravity, Gemini, その他GoogleAIツール
    - Web技術: Chrome, Chromium
    - 自動テスト: Playwright, Playwright CLI, Playwright MCP
