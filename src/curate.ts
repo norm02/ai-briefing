@@ -63,7 +63,7 @@ const prompt = `
    - 自動テスト: Playwright, Playwright CLI, Playwright MCP
    - クラウド： Google Cloud
    - CI/CD: Github Actions
-   - Anthropic/Claude ： Claude CodeなどAnthropicツール
+   - Anthropic/Claude/Codex/OpenAI ： Claude Code、CodexなどのAIツール
 2. 【その他の技術テーマ】
    - 上記1に該当しないその他のツールや一般的な技術記事は、優先度を下げてください。
 3. 【情報の信頼性とソースの優先順位】
