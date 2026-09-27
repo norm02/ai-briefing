@@ -91,7 +91,7 @@ const prompt = `
 ${entriesText}`;
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.5-flash-lite",
   contents: prompt,
 });
 
